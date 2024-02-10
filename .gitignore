@@ -1,0 +1,45 @@
+db_conf.py
+clientes.db
+app.ini
+167.86.105.252-key.pem
+167.86.105.252.pem
+nohup.out
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Data files
+*.xls
+*.xlsx
+*.ods
+*.db
+
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.notas/*
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+.vercel

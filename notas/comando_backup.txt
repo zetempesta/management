@@ -1,0 +1,1 @@
+/usr/bin/pg_dump --file "/home/zetempesta/ifonte/backup/DB_2024_02_06" --host "167.86.105.252" --port "5432" --username "postgres" --no-password --format=c --blobs --verbose "research"
