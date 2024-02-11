@@ -1,11 +1,11 @@
 from sqlalchemy import Null
-from db.orm import insert, select_table_by_id, delete, select_table_offset, update
+from db.orm import insert, select_table, select_table_by_id, delete, update
 from model.research import Research
 from core.parameters import PAGE_SIZE
 
-def list_research(offset:int, limit:int=PAGE_SIZE)->list[Research]:
+def list_research()->list[Research]:
     return_value:list[Research]
-    return_value = select_table_offset(Research, limit=limit, offset=offset) # type: ignore
+    return_value = select_table(Research) # type: ignore
 
     return return_value
 
