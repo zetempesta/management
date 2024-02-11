@@ -2,7 +2,7 @@ from sqlalchemy import Null
 from db.orm import insert, select_table, select_table_by_id, delete, update
 from model.research import Research
 from model.survey import Survey
-from model.research_survey import ResearchSurvey
+from model.research_survey import Research_Survey
 from core.parameters import PAGE_SIZE
 
 def list_research()->list[Research]:
@@ -26,7 +26,7 @@ def insert_research(item:Research)->bool:
     item = insert(item)
     s = Survey(name=item.name, id=item.id)
     insert(s)
-    rs = ResearchSurvey(research=item.id,survey=item.id, order_survey=1)
+    rs = Research_Survey(research=item.id,survey=item.id, order_survey=1)
     insert(rs)
     
     return True
