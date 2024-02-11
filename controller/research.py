@@ -1,3 +1,4 @@
+from sqlalchemy import Null
 from db.orm import insert, select_table_by_id, delete, select_table_offset, update
 from model.research import Research
 from core.parameters import PAGE_SIZE
@@ -8,10 +9,10 @@ def list_research(offset:int, limit:int=PAGE_SIZE)->list[Research]:
 
     return return_value
 
-def list_research_text_filter(offset:int, limit:int=PAGE_SIZE)->list[Research]:
-    return_value:list[Research]
+# def list_research_text_filter(offset:int, limit:int=PAGE_SIZE)->list[Research]:
+#     return_value:list[Research] = Null
 
-    return return_value
+#     return return_value
 
 def get_Research(id:int)->Research:
     return_value:Research

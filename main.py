@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 import services.v1.research as research
+import services.v1.utils as utils
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -18,3 +19,4 @@ app.add_middleware(
 )
 
 app.include_router(research.router)
+app.include_router(utils.router)
