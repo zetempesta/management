@@ -1,5 +1,6 @@
 from sqlalchemy import Null
-from db.orm import insert, select_table, select_table_by_id, delete, update
+from sqlmodel import select
+from db.orm import insert, select_table, select_table_by_id, delete, update, select_table_first
 from model.research import Research
 from model.survey import Survey
 from model.research_survey import Research_Survey
@@ -33,7 +34,11 @@ def insert_research(item:Research)->bool:
 
 def delete_research(item:Research)->bool:
     delete(item)
-    
+    s = select_table_by_id(Survey, item.id)
+    delete(s)
+    stmt = select(Research_Survey).where(Research_Survey.survey == item.id).where(Research_Survey.research == item.id)
+    rs = select_table_first(Research_Survey, stmt)
+    delete(rs)
     return True
 
 def update_research(item:Research)->bool:
