@@ -32,13 +32,20 @@ def insert_research(item:Research)->bool:
     
     return True
 
-def delete_research(item:Research)->bool:
-    delete(item)
-    s = select_table_by_id(Survey, item.id)
+def delete_research(id:int)->bool:
+    r:Research
+
+    stmt = select(Research).where(Research.id == id)
+    r = select_table_by_id(Research,id=id) # type: ignore
+    delete(r)
+    
+    s = select_table_by_id(Survey, r.id)
     delete(s)
-    stmt = select(Research_Survey).where(Research_Survey.survey == item.id).where(Research_Survey.research == item.id)
+
+    stmt = select(Research_Survey).where(Research_Survey.survey == r.id).where(Research_Survey.research == r.id)
     rs = select_table_first(Research_Survey, stmt)
     delete(rs)
+    
     return True
 
 def update_research(item:Research)->bool:
