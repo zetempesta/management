@@ -37,14 +37,16 @@ def delete_research(id:int)->bool:
 
     stmt = select(Research).where(Research.id == id)
     r = select_table_by_id(Research,id=id) # type: ignore
-    delete(r)
+    
     
     s = select_table_by_id(Survey, r.id)
-    delete(s)
+    
 
     stmt = select(Research_Survey).where(Research_Survey.survey == r.id).where(Research_Survey.research == r.id)
     rs = select_table_first(Research_Survey, stmt)
     delete(rs)
+    delete(r)
+    delete(s)
     
     return True
 
