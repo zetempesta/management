@@ -10,6 +10,7 @@ def insert(item):
             session.add(item)
             session.commit()
             session.refresh(item)
+            return item
 
 def count_table(table_name:str)->int:
     cur = engine.connect().execute(text(f"""select count(*) from {table_name}"""))
