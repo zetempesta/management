@@ -14,5 +14,5 @@ async def post_research(research:Research)->bool:
     return insert_research(research)
 
 @router.delete("/research")
-async def delete_research(research:Research)->bool:
-    return del_research(research)
+async def delete_research(id_research:int)->bool:
+    return del_research(id_research)
